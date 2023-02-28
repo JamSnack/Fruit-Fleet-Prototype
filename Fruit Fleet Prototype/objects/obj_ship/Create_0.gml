@@ -19,5 +19,16 @@ items_grappled_count_max = 3;
 items_grappled_array = array_create(items_grappled_count_max);
 items_grappled_count = 0;
 
+function check_grappled_array()
+{
+	for (var i = items_grappled_count_max-1; i > 0; i--)
+	{
+		if (!instance_exists(items_grappled_array[i]))
+		{
+			items_grappled_array[i] = 0;
+			items_grappled_count--;
+		}
+	}	
+}
 //TEMPORARY INIT
 //surface_resize(application_surface, 1366/2, 768/2);
